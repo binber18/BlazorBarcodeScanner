@@ -1,56 +1,12 @@
 ﻿@page "/"
 @using BlazorBarcodeScanner.ZXing.JS
 @inject IJSRuntime JSRuntime
-
-<h1>BlazorBarcodeScanner Demo</h1>
-
-<h2>Stream resolution:</h2>
-(stop and start the stream to pickup new resolution)
-<table>
-    <tr>
-        <th>Width:</th><td><input style="width: 7em" @bind="StreamWidth" /></td>
-    </tr>
-    <tr>
-        <th>Height:</th><td><input style="width: 7em" @bind="StreamHeight" /></td>
-    </tr>
-</table>
-<button @onclick="() => _reader.UpdateResolution()">Update stream</button>
-
-<BlazorBarcodeScanner.ZXing.JS.BarcodeReader @ref="_reader"
-                                             StartCameraAutomatically="true"
-                                             Title="Scanzor"
-                                             VideoWidth="600"
-                                             VideoHeigth="480"
-                                             StreamWidth="@StreamWidth"
-                                             StreamHeight="@StreamHeight"
-                                             OnBarcodeReceived="LocalReceivedBarcodeText"
-                                             ShowResult="true" />
-
-@*<table>
-    <tr>
-        <th>Custom Result:</th>
-        <td>@LocalBarcodeText</td>
-    </tr>
-    <tr>
-        <th>Custom Controls:</th>
-        <td>
-            <button @onclick="() => _reader.StartDecoding()">Start</button>
-            <button @onclick="() => _reader.StopDecoding()">Stop</button>
-            <button @onclick="() => _reader.ToggleTorch()">Toggle Torch</button>
-            <button @onclick="() => _reader.TorchOn()">Toggle On</button>
-            <button @onclick="() => _reader.TorchOff()">Toggle Off</button>
-        </td>
-    </tr>
-    <tr>
-        <th>Custom Source Switch</th>
-        <td>
-            <button @onclick="OnVideoSourceNext">Next source</button>
-        </td>
-    </tr>
-    <tr>
-        <th style="vertical-align: top;"><button @onclick="CapturePicture">Capture</button></th>
-        <td>
-            <img src="@_imgSrc" style="width:100%;height:auto;@(string.IsNullOrWhiteSpace(_imgSrc) ? "display:none;" : "")" />
-        </td>
-    </tr>
-</table>*@
+<BarcodeReader @ref="_reader"
+               StartCameraAutomatically="true"
+               Title="Scanzor"
+               VideoWidth="600"
+               VideoHeigth="480"
+               StreamWidth="@StreamWidth"
+               StreamHeight="@StreamHeight"
+               OnBarcodeReceived="LocalReceivedBarcodeText"
+               ShowResult="true" />
