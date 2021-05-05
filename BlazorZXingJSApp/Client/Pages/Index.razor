@@ -23,9 +23,10 @@
                                              VideoHeigth="480"
                                              StreamWidth="@StreamWidth"
                                              StreamHeight="@StreamHeight"
-                                             OnBarcodeReceived="LocalReceivedBarcodeText" />
+                                             OnBarcodeReceived="LocalReceivedBarcodeText"
+                                             ShowResult="true" />
 
-<table>
+@*<table>
     <tr>
         <th>Custom Result:</th>
         <td>@LocalBarcodeText</td>
@@ -52,4 +53,4 @@
             <img src="@_imgSrc" style="width:100%;height:auto;@(string.IsNullOrWhiteSpace(_imgSrc) ? "display:none;" : "")" />
         </td>
     </tr>
-</table>
+</table>*@

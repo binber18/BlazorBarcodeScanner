@@ -45,6 +45,7 @@ namespace BlazorZXingJSApp.Client.Pages
 
         private void LocalReceivedBarcodeText(BarcodeReceivedEventArgs args)
         {
+            Console.WriteLine(args.BarcodeText);
             this.LocalBarcodeText = args.BarcodeText;
             StateHasChanged();
         }
